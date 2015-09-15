@@ -1,0 +1,27 @@
+{
+  "name": "the-world-is-vast",
+  "version": "1.0.0",
+  "description": "Easily parse your VAST ad, get the media &amp; call the tracking events in a browser",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gbranchaudrubenovitch/the-world-is-vast.git"
+  },
+  "keywords": [
+    "vast"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gbranchaudrubenovitch/the-world-is-vast/issues"
+  },
+  "homepage": "https://github.com/gbranchaudrubenovitch/the-world-is-vast#readme",
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "cheerio": "^0.18.0",
+    "mocha": "^2.0.1",
+    "supertest": "^0.15.0"
+  }
+}
