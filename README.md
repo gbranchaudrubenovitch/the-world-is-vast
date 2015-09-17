@@ -1,4 +1,4 @@
-# the-world-is-vast
+# the-world-is-vast [![Build Status](https://travis-ci.org/gbranchaudrubenovitch/the-world-is-vast.svg?branch=master)](https://travis-ci.org/gbranchaudrubenovitch/the-world-is-vast)
 Easily parse your VAST ad, get the media & call the tracking events in a browser
 
 ## Using the-world-is-vast
