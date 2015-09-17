@@ -1,18 +1,17 @@
-# the-world-is-vast [![Build Status](https://travis-ci.org/gbranchaudrubenovitch/the-world-is-vast.svg?branch=master)](https://travis-ci.org/gbranchaudrubenovitch/the-world-is-vast)
+# the-world-is-vast (`twiv`)[![Build Status](https://travis-ci.org/gbranchaudrubenovitch/the-world-is-vast.svg?branch=master)](https://travis-ci.org/gbranchaudrubenovitch/the-world-is-vast)
 Easily parse your VAST ad, get the media & call the tracking events in a browser
 
-## Using the-world-is-vast
+## Using `twiv`
 * TODO!
 
-## The VAST object exposed by twiv
-`twiv` (the-world-is-vast) exposes just enough of the VAST model to allow you to quickly play the ad and confirm its view.
+## The VAST object exposed by `twiv`
+`twiv` exposes just enough of the VAST model to allow you to quickly play the ad and confirm its view.
 
     // ... in your player js code
     var vast = twiv.parseFromString(vastStringSuppliedByYourAdServer);
     vast.ads[0].inline.impressionLinks.forEach(function(l) {
       console.log("impression pointing to: " + l);
     });
-
 
 ## TODO
 * parse the media of a simple vast
