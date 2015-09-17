@@ -4,7 +4,13 @@ var twiv = this.twiv;
 
 twiv.parseFromString = function (vastString) {
   var vastDom = twiv.privateHelpers.parseXmlString(vastString);
-  return "vast is parsed! Update your test to catch this hardcoded string.";
+  if (vastDom.documentElement.nodeName !== "VAST") {
+    throw new Error("This string is not a VAST file.");
+  }
+
+  return {
+    ads: twiv.privateHelpers.ads(vastDom)
+  };
 };
 
 twiv.privateHelpers.parseXmlString = function (xmlString) {
@@ -16,4 +22,19 @@ twiv.privateHelpers.parseXmlString = function (xmlString) {
     throw new Error("String is not valid XML.", dom);
   }
   return dom;
+};
+
+twiv.privateHelpers.ads = function (vastRoot) {
+  var rawAds = vastRoot.getElementsByTagName('Ad');
+  return [].map.call(rawAds, function (ad) {
+    return {
+      inline: twiv.privateHelpers.inline(ad)
+    };
+  });
+};
+
+twiv.privateHelpers.inline = function (adRoot) {
+  var inlineRoot = adRoot.getElementsByTagName('InLine');
+  return {
+  };
 };

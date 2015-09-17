@@ -20,7 +20,22 @@ describe('twiv parser', () => {
     should.Throw(() => twiv.parseFromString('someInvalidXml>'), Error);
   });
 
+  it('should crash if non-vast xml is passed', () => {
+    should.Throw(() => twiv.parseFromString("<SomeDoc></SomeDoc>"), Error, "This string is not a VAST file.");
+  });
+
   it('should return something given a valid xml', () => {
     twiv.parseFromString('<VAST></VAST>').should.not.be.null;
   });
+
+  it('should read the Ads', () => {
+    var vast = twiv.parseFromString('<VAST><Ad></Ad><Ad></Ad></VAST>');
+    vast.ads.should.have.length(2);
+  });
+
+  it('should read the InLine', () => {
+    var vast = twiv.parseFromString('<VAST><Ad><InLine></InLine></Ad></VAST>');
+    vast.ads[0].inline.should.not.be.null;
+  });
+
 });
