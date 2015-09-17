@@ -38,4 +38,8 @@ describe('twiv parser', () => {
     vast.ads[0].inline.should.not.be.null;
   });
 
+  it('should read & trim the impression links', () => {
+    var vast = twiv.parseFromString('<VAST><Ad><InLine><Impression><![CDATA[some-url1]]></Impression><Impression>\n  <![CDATA[some-url&with_spaces  ]]></Impression></InLine></Ad></VAST>');
+    vast.ads[0].inline.impressionLinks.should.have.length(2).and.contain("some-url1").and.contain("some-url&with_spaces");
+  });
 });

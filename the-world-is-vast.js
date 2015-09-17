@@ -34,7 +34,19 @@ twiv.privateHelpers.ads = function (vastRoot) {
 };
 
 twiv.privateHelpers.inline = function (adRoot) {
-  var inlineRoot = adRoot.getElementsByTagName('InLine');
+  var inlineRoot = adRoot.getElementsByTagName('InLine')[0];
+  if (!inlineRoot) {
+    return null;
+  }
+
   return {
+    impressionLinks: twiv.privateHelpers.impressionLinks(inlineRoot)
   };
+};
+
+twiv.privateHelpers.impressionLinks = function (inlineRoot) {
+  var rawImpressionLinks = inlineRoot.getElementsByTagName("Impression");
+  return [].map.call(rawImpressionLinks, function(impressionLink) {
+    return impressionLink.textContent.trim();
+  });
 };
